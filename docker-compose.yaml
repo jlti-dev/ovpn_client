@@ -3,7 +3,7 @@ version: '3'
 services:
         dev:
                 restart: unless-stopped
-                build: jlti/ovpn_client:latest
+                image: jlti/ovpn_client:latest
                 cap_add: 
                         - NET_ADMIN
                 volumes:
