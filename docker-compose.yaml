@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+        dev:
+                restart: unless-stopped
+                build: jlti/ovpn_client:latest
+                cap_add: 
+                        - NET_ADMIN
+                volumes:
+                        - ./config/conf.ovpn:/tmp/conf.ovpn:ro
+                sysctls:
+                        - net.ipv4.ip_forward=1
+                environment:
+                        - "MANAGEMENT_PORT=7505"
+                networks:
+                        default:
+                                ipv4_address: 10.215.170.140
